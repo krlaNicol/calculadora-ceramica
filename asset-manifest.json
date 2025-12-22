@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/calculadora-ceramica/static/css/main.3cff7103.css",
-    "main.js": "/calculadora-ceramica/static/js/main.044ea123.js",
+    "main.css": "/calculadora-ceramica/static/css/main.411927cd.css",
+    "main.js": "/calculadora-ceramica/static/js/main.ee56c2b0.js",
     "index.html": "/calculadora-ceramica/index.html",
-    "main.3cff7103.css.map": "/calculadora-ceramica/static/css/main.3cff7103.css.map",
-    "main.044ea123.js.map": "/calculadora-ceramica/static/js/main.044ea123.js.map"
+    "main.411927cd.css.map": "/calculadora-ceramica/static/css/main.411927cd.css.map",
+    "main.ee56c2b0.js.map": "/calculadora-ceramica/static/js/main.ee56c2b0.js.map"
   },
   "entrypoints": [
-    "static/css/main.3cff7103.css",
-    "static/js/main.044ea123.js"
+    "static/css/main.411927cd.css",
+    "static/js/main.ee56c2b0.js"
   ]
 }
