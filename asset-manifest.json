@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/calculadora-ceramica/static/css/main.3cff7103.css",
+    "main.js": "/calculadora-ceramica/static/js/main.044ea123.js",
+    "index.html": "/calculadora-ceramica/index.html",
+    "main.3cff7103.css.map": "/calculadora-ceramica/static/css/main.3cff7103.css.map",
+    "main.044ea123.js.map": "/calculadora-ceramica/static/js/main.044ea123.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3cff7103.css",
+    "static/js/main.044ea123.js"
+  ]
+}
