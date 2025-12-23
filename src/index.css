@@ -1,23 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Jaldi:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Reset y configuración base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Fuentes y tipografía optimizada */
+@layer base {
+  body {
+    @apply antialiased;
+    font-family: 'Jaldi', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: #faf8f5;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Irish Grover', cursive;
+  }
+
+  /* Mejora de legibilidad para números */
+  input[type="number"] {
+    font-variant-numeric: tabular-nums;
+    font-family: 'Jaldi', sans-serif;
+  }
+
+  /* Placeholders mejorados */
+  input::placeholder {
+    color: #a0a0a0;
+    opacity: 0.6;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  input:focus::placeholder {
+    opacity: 0.4;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Layout Sections - CENTRADO */
+.section-first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.section-second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.terty-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Componentes personalizados */
+@layer components {
+  /* Inputs simples y limpios */
+  .input-field {
+    @apply w-full px-3 py-2 text-base border-2 border-gray-400 rounded-lg
+           focus:ring-0 focus:border-gray-600 
+           transition-all duration-200 bg-white;
+    font-family: 'Jaldi', sans-serif;
+    font-weight: 400;
+  }
+
+  .input-field-small {
+    @apply w-full px-3 py-2 text-sm border-2 border-gray-400 rounded-lg
+           focus:ring-0 focus:border-gray-600 
+           transition-all duration-200 bg-white;
+    font-family: 'Jaldi', sans-serif;
+    font-weight: 400;
+  }
+
+  /* Botón simple y redondeado */
+  .btn-primary {
+    @apply bg-blue-300 hover:bg-blue-400 
+           text-gray-800 font-bold py-2 px-6 rounded-full
+           transition-all duration-200 shadow-sm hover:shadow-md 
+           transform hover:scale-105 active:scale-95
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+    font-family: 'Jaldi', sans-serif;
+    font-weight: 700;
+  }
+
+  .btn-secondary {
+    @apply bg-blue-300 hover:bg-blue-400 
+           text-gray-800 font-bold py-2 px-6 rounded-full
+           transition-all duration-200 shadow-sm hover:shadow-md 
+           transform hover:scale-105 active:scale-95
+           flex items-center justify-center gap-2
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+    font-family: 'Jaldi', sans-serif;
+    font-weight: 700;
+  }
+
+  .btn-delete {
+    @apply bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-lg 
+           transition-all duration-200 hover:shadow-sm
+           active:scale-95 border border-red-300;
+  }
+
+  /* Cards con fondo pastel */
+  .card-gradient {
+    @apply bg-orange-50 rounded-3xl shadow-sm p-6 md:p-8 
+           border-2 border-gray-300;
+  }
+
+  .card-beige {
+    @apply bg-amber-50 rounded-3xl shadow-sm p-6 md:p-8 
+           border-2 border-gray-300;
+  }
+
+  .card-mint {
+    @apply bg-teal-50 rounded-3xl shadow-sm p-6 md:p-8 
+           border-2 border-gray-300;
+  }
+
+  .card-peach {
+    @apply bg-orange-100 rounded-3xl shadow-sm p-5 md:p-6 
+           border-2 border-gray-300;
+  }
+
+  /* Stats card simple */
+  .stat-item {
+    @apply flex items-center justify-between py-2 px-3;
+    font-family: 'Jaldi', sans-serif;
+  }
+
+  .stat-label {
+    @apply text-sm md:text-base font-bold text-gray-700;
+    font-family: 'Jaldi', sans-serif;
+  }
+
+  .stat-value {
+    @apply text-base md:text-lg font-bold text-gray-800;
+    font-family: 'Jaldi', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Total destacado */
+  .total-box {
+    @apply bg-orange-100 rounded-2xl shadow-sm p-4 md:p-5 
+           border-2 border-gray-300 inline-block;
+  }
+
+  .total-label {
+    @apply text-xl md:text-2xl font-bold text-gray-800 mr-3;
+    font-family: 'Irish Grover', cursive;
+  }
+
+  .total-value {
+    @apply text-2xl md:text-3xl font-bold text-gray-800;
+    font-family: 'Irish Grover', cursive;
+  }
+
+  /* Badge de capacidad */
+  .capacity-badge {
+    @apply text-sm font-bold px-3 py-1 rounded-full inline-block border-2;
+    font-family: 'Jaldi', sans-serif;
+  }
+
+  .capacity-badge-success {
+    @apply capacity-badge bg-green-100 text-green-700 border-green-400;
+  }
+
+  .capacity-badge-danger {
+    @apply capacity-badge bg-red-100 text-red-700 border-red-400;
+  }
+
+  /* Tablas simples */
+  .table-header {
+    @apply bg-gray-200 text-gray-800 font-bold text-sm border-b-2 border-gray-400;
+  }
+
+  .table-row {
+    @apply hover:bg-gray-50 transition-colors duration-150 border-b border-gray-300;
+  }
+
+  /* Celdas de tabla con bordes */
+  table td,
+  table th {
+    @apply border-r border-gray-300;
+    font-family: 'Jaldi', sans-serif;
+  }
+
+  table td:last-child,
+  table th:last-child {
+    @apply border-r-0;
+  }
+
+  /* Info box */
+  .info-box {
+    @apply bg-white rounded-2xl p-4 md:p-5 
+           border-2 border-gray-300 shadow-sm;
+  }
+
+  /* Label */
+  .input-label {
+    @apply block text-sm font-bold text-gray-700 mb-1.5;
+    font-family: 'Jaldi', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Título de sección */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center w-full;
+    font-family: 'Irish Grover', cursive;
+  }
+
+  /* Empty state */
+  .empty-state {
+    @apply text-center py-12 md:py-16 text-gray-500 
+           bg-gray-50 rounded-2xl border-2 border-dashed border-gray-300;
+  }
+}
+
+/* Utilidades personalizadas */
+@layer utilities {
+  /* Animaciones suaves */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Números grandes legibles */
+  .number-display {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  /* Contenedor responsive centrado */
+  .responsive-container {
+    @apply max-w-3xl mx-auto px-4 sm:px-6;
+  }
+
+  /* Grid responsive para inputs */
+  .input-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 w-full;
+  }
+
+  /* Grid para piezas */
+  .pieces-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-3 w-full;
+  }
+
+  /* Scrollbar simple */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+  }
+
+  /* Tabla responsive */
+  .table-responsive {
+    @apply overflow-x-auto rounded-xl border-2 border-gray-300 custom-scrollbar;
+    background: white;
+  }
+
+  /* Tamaños de texto responsive */
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimización para impresión */
+@media print {
+  body {
+    background: white;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .card-gradient,
+  .card-beige,
+  .card-mint {
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-delete {
+    display: none;
+  }
+}
+
+/* Responsive: Mejoras para móviles */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+
+  .card-gradient,
+  .card-beige,
+  .card-mint {
+    padding: 1.25rem;
+  }
+
+  input[type="number"] {
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  table th,
+  table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .pieces-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .responsive-container {
+    max-width: 900px;
+  }
 }
