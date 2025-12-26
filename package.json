@@ -2,7 +2,7 @@
   "name": "ceramics-kiln-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://krlaNicol.github.io/calculadora-ceramica",
+  "homepage": "https://krlanicol.github.io/calculadora-ceramica",
   "dependencies": {
     "lucide-react": "^0.263.1",
     "react": "^18.2.0",
